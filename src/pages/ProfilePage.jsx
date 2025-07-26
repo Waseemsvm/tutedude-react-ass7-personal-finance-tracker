@@ -18,8 +18,10 @@ export default function ProfilePage() {
         <div className={ProfilePageStyles["currency-cont"]}>
           <p>Default Currency</p>
           <select name="" id="">
-            <option key="in">Rs</option>
-            <option key="us">$</option>
+            <option key="in">₹ ( Indian Rupee )</option>
+            <option key="us">$ ( US Dollar )</option>
+            <option key="eu">€ ( Euro )</option>
+            <option key="po">£ ( British Pound Sterling )</option>
           </select>
         </div>
         <div className={ProfilePageStyles["amount-card-cont"]}>

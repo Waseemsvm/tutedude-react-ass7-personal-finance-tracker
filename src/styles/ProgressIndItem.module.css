@@ -1,0 +1,30 @@
+.prog-ind-cont {
+  display: flex;
+  flex-direction: column;
+}
+
+.prog-ind-title {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.prog-ind-title p {
+  display: inline-block;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #f0f0f0;
+  height: 0.75rem;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.progress {
+  width: 10%;
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.3s ease;
+  border-radius: 10px;
+}

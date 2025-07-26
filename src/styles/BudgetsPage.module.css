@@ -1,0 +1,48 @@
+.budgets-page-cont {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.budgets-page {
+  box-shadow: #0000003d 0px 3px 8px;
+  min-width: 30rem;
+  padding: 2.5rem;
+}
+
+.budgets-page-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.budgets-page-budget-setter {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.budgets-page-budget-setter select {
+  width: 60%;
+}
+
+.budgets-page-budget-setter input {
+  width: 40%;
+}
+
+.budgets-page-section1 + hr {
+  margin: 2rem 0;
+}
+
+.budgets-page-save-btn{
+    display: flex;
+    justify-content: end;
+    margin-top: 1rem;
+}
+
+
+.progress-cont{
+    max-height: 15rem;
+    overflow-y: auto;
+    padding: 1rem;
+}
