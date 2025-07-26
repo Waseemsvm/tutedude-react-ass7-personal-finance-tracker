@@ -1,0 +1,28 @@
+html,
+body,
+#root,
+#app {
+  height: 100%;
+  font-family: sans-serif;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.main {
+  flex: auto;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}

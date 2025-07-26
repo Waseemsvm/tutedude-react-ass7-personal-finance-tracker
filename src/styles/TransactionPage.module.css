@@ -1,0 +1,59 @@
+.trans-page-cont {
+  margin: 1rem;
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 3rem);
+}
+
+.trans-page-table-cont {
+  overflow-y: auto;
+  flex: auto;
+  height: calc(100% - 4rem);
+}
+
+.trans-page-table {
+  width: 100%;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.trans-page-table thead {
+  position: sticky;
+}
+
+.trans-page-table tbody {
+  height: 100%;
+}
+
+.trans-page-table,
+.trans-page-table th,
+.trans-page-table td {
+  border: 0.5px solid black;
+  border-collapse: collapse;
+}
+
+.trans-page-table th,
+.trans-page-table td {
+  padding: 1rem;
+}
+
+.trans-page-table td button {
+  padding: 0.5rem;
+}
+
+.trans-page-toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 3rem;
+  margin-bottom: 1rem;
+  box-shadow: #0000003d 0px 3px 8px;
+  padding: 1rem;
+}
+
+.trans-page-toolbar button {
+  min-height: 2rem;
+  width: 3rem;
+}

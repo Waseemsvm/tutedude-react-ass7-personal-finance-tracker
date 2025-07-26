@@ -1,0 +1,100 @@
+.profile {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-card {
+  box-shadow: #0000003d 0px 3px 8px;
+  min-width: 30rem;
+  padding: 2.5rem;
+}
+
+.profile-card-header {
+  display: flex;
+  width: 100%;
+}
+
+.profile-card-header img {
+  display: block;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  margin-right: 2rem;
+}
+
+.currency-cont {
+  display: flex;
+  height: 3.5rem;
+  align-items: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.currency-cont p {
+  /* margin-right: 3.5rem; */
+  min-width: 10rem;
+  font-size: 1.15rem;
+}
+
+.currency-cont select {
+  width: 100%;
+  height: 2rem;
+}
+
+.amount-card-cont {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.profile-card-footer {
+  display: flex;
+  justify-content: end;
+  margin-top: 1.5rem;
+}
+
+.profile-card-footer button {
+  padding: 0.25rem;
+  width: 3.5rem;
+  font-size: 1rem;
+}
+
+.email{
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 576px) {
+  .profile-card {
+    width: 100%;
+    height: 100%;
+  }
+
+  .currency-cont {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-items: start;
+  }
+
+  .currency-cont p {
+    margin: 0.5rem 0;
+    text-align: start;
+  }
+
+  .currency-cont select{
+    margin: 1rem 0;
+    height: 2.5rem;
+  }
+
+  .amount-card-cont {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-card {
+    min-width: 0px;
+    padding: 1rem;
+  }
+}
