@@ -1,11 +1,18 @@
 import DashboardPageStyles from "../styles/Dashboard.module.css";
 
 export default function DashboardTable() {
+  const today = new Date();
+  const value = today.toISOString().substr(0, 10);
+
   return (
     <div className={DashboardPageStyles["dash-table-cont"]}>
       <div className={DashboardPageStyles["dash-table-header"]}>
         <h3>Today's Expenses</h3>
-        <input className={DashboardPageStyles["date-picker"]} type="date" />
+        <input
+          className={DashboardPageStyles["date-picker"]}
+          type="date"
+          value={value}
+        />
       </div>
       <table className={DashboardPageStyles["dash-table"]}>
         <thead>

@@ -4,357 +4,357 @@
             "type": "Income",
             "amount": 1000,
             "category": "Salary",
-            "date": "2024-03-01",
+            "date": "2025-03-01",
             "description": "March Salary"
         },
         {
             "type": "Expense",
             "amount": 120,
             "category": "Groceries",
-            "date": "2024-03-02",
+            "date": "2025-03-02",
             "description": "Weekly groceries"
         },
         {
             "type": "Expense",
             "amount": 45,
             "category": "Entertainment",
-            "date": "2024-03-03",
+            "date": "2025-03-03",
             "description": "Movie night"
         },
         {
             "type": "Expense",
             "amount": 60,
             "category": "Transportation",
-            "date": "2024-03-04",
+            "date": "2025-03-04",
             "description": "Fuel charges"
         },
         {
             "type": "Expense",
             "amount": 300,
             "category": "Rent",
-            "date": "2024-03-05",
+            "date": "2025-03-05",
             "description": "Monthly rent"
         },
         {
             "type": "Income",
             "amount": 1000,
             "category": "Salary",
-            "date": "2024-03-07",
+            "date": "2025-03-07",
             "description": "Side job payout"
         },
         {
             "type": "Expense",
             "amount": 80,
             "category": "Groceries",
-            "date": "2024-03-08",
+            "date": "2025-03-08",
             "description": "Grocery shopping"
         },
         {
             "type": "Expense",
             "amount": 90,
             "category": "Entertainment",
-            "date": "2024-03-09",
+            "date": "2025-03-09",
             "description": "Concert ticket"
         },
         {
             "type": "Expense",
             "amount": 50,
             "category": "Transportation",
-            "date": "2024-03-10",
+            "date": "2025-03-10",
             "description": "Bus pass"
         },
         {
             "type": "Expense",
             "amount": 250,
             "category": "Rent",
-            "date": "2024-03-11",
+            "date": "2025-03-11",
             "description": "Studio rent"
         },
         {
             "type": "Income",
             "amount": 500,
             "category": "Salary",
-            "date": "2024-03-13",
+            "date": "2025-03-13",
             "description": "Consulting work"
         },
         {
             "type": "Expense",
             "amount": 60,
             "category": "Groceries",
-            "date": "2024-03-14",
+            "date": "2025-03-14",
             "description": "Vegetables and snacks"
         },
         {
             "type": "Expense",
             "amount": 40,
             "category": "Entertainment",
-            "date": "2024-03-15",
+            "date": "2025-03-15",
             "description": "Streaming subscription"
         },
         {
             "type": "Income",
             "amount": 2000,
             "category": "Salary",
-            "date": "2024-04-01",
+            "date": "2025-04-01",
             "description": "April salary"
         },
         {
             "type": "Expense",
             "amount": 110,
             "category": "Groceries",
-            "date": "2024-04-02",
+            "date": "2025-04-02",
             "description": "Monthly groceries"
         },
         {
             "type": "Expense",
             "amount": 300,
             "category": "Rent",
-            "date": "2024-04-03",
+            "date": "2025-04-03",
             "description": "Flat rent"
         },
         {
             "type": "Expense",
             "amount": 90,
             "category": "Transportation",
-            "date": "2024-04-04",
+            "date": "2025-04-04",
             "description": "Taxi fares"
         },
         {
             "type": "Expense",
             "amount": 70,
             "category": "Entertainment",
-            "date": "2024-04-05",
+            "date": "2025-04-05",
             "description": "Comedy show"
         },
         {
             "type": "Expense",
             "amount": 45,
             "category": "Groceries",
-            "date": "2024-04-06",
+            "date": "2025-04-06",
             "description": "Snack shopping"
         },
         {
             "type": "Income",
             "amount": 1000,
             "category": "Salary",
-            "date": "2024-04-07",
+            "date": "2025-04-07",
             "description": "Project milestone bonus"
         },
         {
             "type": "Expense",
             "amount": 55,
             "category": "Transportation",
-            "date": "2024-04-08",
+            "date": "2025-04-08",
             "description": "Bike fuel"
         },
         {
             "type": "Expense",
             "amount": 280,
             "category": "Rent",
-            "date": "2024-04-09",
+            "date": "2025-04-09",
             "description": "Shared flat rent"
         },
         {
             "type": "Expense",
             "amount": 100,
             "category": "Entertainment",
-            "date": "2024-04-10",
+            "date": "2025-04-10",
             "description": "Gaming subscription"
         },
         {
             "type": "Expense",
             "amount": 130,
             "category": "Groceries",
-            "date": "2024-04-11",
+            "date": "2025-04-11",
             "description": "Big bazaar shopping"
         },
         {
             "type": "Income",
             "amount": 1500,
             "category": "Salary",
-            "date": "2024-04-13",
+            "date": "2025-04-13",
             "description": "Performance bonus"
         },
         {
             "type": "Expense",
             "amount": 50,
             "category": "Transportation",
-            "date": "2024-04-14",
+            "date": "2025-04-14",
             "description": "Auto rides"
         },
         {
             "type": "Income",
             "amount": 2200,
             "category": "Salary",
-            "date": "2024-05-01",
+            "date": "2025-05-01",
             "description": "May Salary"
         },
         {
             "type": "Expense",
             "amount": 60,
             "category": "Groceries",
-            "date": "2024-05-02",
+            "date": "2025-05-02",
             "description": "Groceries for the week"
         },
         {
             "type": "Expense",
             "amount": 250,
             "category": "Rent",
-            "date": "2024-05-03",
+            "date": "2025-05-03",
             "description": "Apartment rent"
         },
         {
             "type": "Expense",
             "amount": 75,
             "category": "Transportation",
-            "date": "2024-05-04",
+            "date": "2025-05-04",
             "description": "Metro card recharge"
         },
         {
             "type": "Expense",
             "amount": 85,
             "category": "Entertainment",
-            "date": "2024-05-05",
+            "date": "2025-05-05",
             "description": "Live music event"
         },
         {
             "type": "Income",
             "amount": 600,
             "category": "Salary",
-            "date": "2024-05-06",
+            "date": "2025-05-06",
             "description": "Freelance gig payout"
         },
         {
             "type": "Expense",
             "amount": 95,
             "category": "Groceries",
-            "date": "2024-05-07",
+            "date": "2025-05-07",
             "description": "Organic store shopping"
         },
         {
             "type": "Expense",
             "amount": 260,
             "category": "Rent",
-            "date": "2024-05-08",
+            "date": "2025-05-08",
             "description": "Flat rent"
         },
         {
             "type": "Expense",
             "amount": 40,
             "category": "Transportation",
-            "date": "2024-05-09",
+            "date": "2025-05-09",
             "description": "Scooter fuel"
         },
         {
             "type": "Expense",
             "amount": 60,
             "category": "Entertainment",
-            "date": "2024-05-10",
+            "date": "2025-05-10",
             "description": "Movie ticket"
         },
         {
             "type": "Expense",
             "amount": 100,
             "category": "Groceries",
-            "date": "2024-05-11",
+            "date": "2025-05-11",
             "description": "Weekend food"
         },
         {
             "type": "Income",
             "amount": 1700,
             "category": "Salary",
-            "date": "2024-05-12",
+            "date": "2025-05-12",
             "description": "Job salary"
         },
         {
             "type": "Expense",
             "amount": 55,
             "category": "Transportation",
-            "date": "2024-05-13",
+            "date": "2025-05-13",
             "description": "Cab rides"
         },
         {
             "type": "Income",
             "amount": 2100,
             "category": "Salary",
-            "date": "2024-06-01",
+            "date": "2025-06-01",
             "description": "June Salary"
         },
         {
             "type": "Expense",
             "amount": 110,
             "category": "Groceries",
-            "date": "2024-06-02",
+            "date": "2025-06-02",
             "description": "Monthly groceries"
         },
         {
             "type": "Expense",
             "amount": 30,
             "category": "Entertainment",
-            "date": "2024-06-03",
+            "date": "2025-06-03",
             "description": "Online game pass"
         },
         {
             "type": "Expense",
             "amount": 290,
             "category": "Rent",
-            "date": "2024-06-04",
+            "date": "2025-06-04",
             "description": "Studio rent"
         },
         {
             "type": "Expense",
             "amount": 40,
             "category": "Transportation",
-            "date": "2024-06-05",
+            "date": "2025-06-05",
             "description": "Local transport"
         },
         {
             "type": "Income",
             "amount": 1250,
             "category": "Salary",
-            "date": "2024-06-06",
+            "date": "2025-06-06",
             "description": "Part-time work"
         },
         {
             "type": "Expense",
             "amount": 55,
             "category": "Entertainment",
-            "date": "2024-06-07",
+            "date": "2025-06-07",
             "description": "Theatre show"
         },
         {
             "type": "Expense",
             "amount": 75,
             "category": "Groceries",
-            "date": "2024-06-08",
+            "date": "2025-06-08",
             "description": "Organic produce"
         },
         {
             "type": "Expense",
             "amount": 260,
             "category": "Rent",
-            "date": "2024-06-09",
+            "date": "2025-06-09",
             "description": "Room rent"
         },
         {
             "type": "Expense",
             "amount": 50,
             "category": "Transportation",
-            "date": "2024-06-10",
+            "date": "2025-06-10",
             "description": "Bus fare"
         },
         {
             "type": "Expense",
             "amount": 90,
             "category": "Entertainment",
-            "date": "2024-06-11",
+            "date": "2025-06-11",
             "description": "Subscription bundle"
         },
         {
             "type": "Income",
             "amount": 1500,
             "category": "Salary",
-            "date": "2024-06-12",
+            "date": "2025-06-12",
             "description": "Monthly salary"
         }
     ]

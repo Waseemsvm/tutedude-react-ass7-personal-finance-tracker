@@ -1,6 +1,7 @@
 .prog-ind-cont {
   display: flex;
   flex-direction: column;
+  margin: 1.5rem 0;
 }
 
 .prog-ind-title {
@@ -16,7 +17,7 @@
 .progress-bar {
   width: 100%;
   background-color: #f0f0f0;
-  height: 0.75rem;
+  height: 0.5rem;
   margin-bottom: 10px;
   border-radius: 10px;
 }

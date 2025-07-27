@@ -7,10 +7,11 @@ export const TransactionProvider = ({ children }) => {
   const showForm = (value) => {
     setShowTransactionForm(value);
   };
-
-  <TransactionContext.Provider value={showForm}>
-    {children}
-  </TransactionContext.Provider>;
+  return (
+    <TransactionContext.Provider value={{ showForm, showTransactionForm }}>
+      {children}
+    </TransactionContext.Provider>
+  );
 };
 
-export const useTransaction = useContext(TransactionContext);
+export const useTransaction = () => useContext(TransactionContext);

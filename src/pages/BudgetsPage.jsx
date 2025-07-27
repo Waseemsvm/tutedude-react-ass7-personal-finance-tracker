@@ -26,18 +26,30 @@ export default function BudgetsPage() {
         </div>
         <hr />
         <div className={BudgetsPageStyles["progress-cont"]}>
-          <ProgressIndItem />
-          <ProgressIndItem />
-          <ProgressIndItem />
-          <ProgressIndItem />
-          <ProgressIndItem />
-          <ProgressIndItem />
-          <ProgressIndItem />
-          <ProgressIndItem />
-          <ProgressIndItem />
-          <ProgressIndItem />
-          <ProgressIndItem />
-          <ProgressIndItem />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
+          <ProgressIndItem title={"Title"} amount={7400} budget={10000} />
         </div>
       </div>
     </div>

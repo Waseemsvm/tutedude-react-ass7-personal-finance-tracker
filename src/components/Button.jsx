@@ -1,3 +1,12 @@
-export default function Button({ text }) {
-  return <button>{text}</button>;
+export default function Button({ text, onClick, className }) {
+  return (
+    <button
+      className={`btn ${className}`}
+      onClick={(e) => {
+        onClick?.();
+      }}
+    >
+      {text}
+    </button>
+  );
 }

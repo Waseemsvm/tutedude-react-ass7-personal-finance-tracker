@@ -26,3 +26,21 @@ body,
   display: flex;
   flex-direction: column;
 }
+
+.btn {
+  border-radius: 5px;
+  background-color: #0062d1;
+  color: white;
+  font-weight: 200;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #1976d2;
+}
+
+.btn:active {
+  background-color: #0062d1;
+}

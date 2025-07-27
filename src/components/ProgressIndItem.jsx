@@ -1,6 +1,6 @@
 import ProgressIndItemStyles from "../styles/ProgressIndItem.module.css";
 
-export default function ProgressIndItem() {
+export default function ProgressIndItem({ title, budget, amount }) {
   return (
     <div className={ProgressIndItemStyles["prog-ind-cont"]}>
       <div className={ProgressIndItemStyles["prog-ind-title"]}>
