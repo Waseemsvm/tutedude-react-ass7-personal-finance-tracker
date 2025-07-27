@@ -3,7 +3,15 @@ import DashboardPageStyles from "../styles/Dashboard.module.css";
 import { filterByDate } from "../app_state/TransactionReducer";
 
 function DashboardTable(props) {
-  const { dateVal, expenses, updateDate, transactions } = props;
+  const {
+    dateVal,
+    expenses,
+    updateDate,
+    transactions,
+    currency,
+    symbol,
+    rate,
+  } = props;
 
   return (
     <div className={DashboardPageStyles["dash-table-cont"]}>
@@ -21,7 +29,7 @@ function DashboardTable(props) {
       <table className={DashboardPageStyles["dash-table"]}>
         <thead>
           <tr>
-            <th>Amount</th>
+            <th>Amount ( {symbol} )</th>
             <th>Category</th>
             <th>Note</th>
           </tr>
@@ -29,7 +37,7 @@ function DashboardTable(props) {
         <tbody>
           {expenses.map((expense, idx) => (
             <tr key={idx}>
-              <td>{expense.amount}</td>
+              <td>{Math.round(expense.amount * rate)}</td>
               <td>{expense.type}</td>
               <td>{expense.description}</td>
             </tr>
@@ -45,6 +53,13 @@ const mapStateToProps = (state) => {
     dateVal: state.dashboard.filterDate,
     expenses: state.dashboard.expenses,
     transactions: state.transactions,
+    currency: state.profile.currency,
+    symbol:
+      state.profile.currencyList.find((c) => c.key === state.profile.currency)
+        ?.symbol ?? "₹",
+    rate:
+      state.profile.currencyList.find((c) => c.key === state.profile.currency)
+        ?.rate ?? 1,
   };
 };
 

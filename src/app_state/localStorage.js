@@ -16,9 +16,67 @@ const profileState = {
   name: "Guest",
   dob: "1999-03-10",
   src: "/src/assets/profile-pic.jpg",
-  currency: "₹ ( Indian Rupee )",
+  currency: "INR",
   email: "",
+  currencyList: [],
 };
+
+const currencyList = [
+  {
+    key: "INR",
+    value: "₹ (Indian Rupee)",
+    rate: 1,
+    symbol: "₹",
+  },
+  {
+    key: "USD",
+    value: "$ (US Dollar)",
+    rate: 0.01156,
+    symbol: "$",
+  },
+  {
+    key: "EUR",
+    value: "€ (Euro)",
+    rate: 0.00999,
+    symbol: "€",
+  },
+  {
+    key: "GBP",
+    value: "£ (British Pound Sterling)",
+    rate: 0.00859,
+    symbol: "£",
+  },
+];
+
+const categories = [
+  {
+    key: "groceries",
+    value: "Groceries",
+  },
+  {
+    key: "entertainment",
+    value: "Entertainment",
+  },
+  {
+    key: "transportation",
+    value: "Transportation",
+  },
+  {
+    key: "rent",
+    value: "Rent",
+  },
+];
+
+const types = [
+  {
+    key: "income",
+    value: "Income",
+  },
+  {
+    key: "expense",
+    value: "Expense",
+  },
+];
 
 export const loadState = () => {
   try {
@@ -26,6 +84,13 @@ export const loadState = () => {
     if (serialized === null) {
       data.dashboard = dashboardInitialState;
       data.profile = profileState;
+      data.profile.currencyList = currencyList;
+      data.profile.categories = categories;
+      data.profile.types = types;
+      data.profile.budget = 5000;
+      data.profile.orgTransactions = JSON.parse(
+        JSON.stringify(data.transactions)
+      );
       return data;
     } // if laoding first time return intial/default data
 

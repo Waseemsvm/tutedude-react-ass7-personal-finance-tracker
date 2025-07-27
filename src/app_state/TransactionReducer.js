@@ -1,6 +1,5 @@
 import { __DO_NOT_USE__ActionTypes, combineReducers, createStore } from "redux";
 import { loadState, saveState } from "./localStorage";
-import { createSlice } from "@reduxjs/toolkit";
 
 const preloadedState = loadState();
 
@@ -19,6 +18,7 @@ export const CALC_MONTHLY_SPEND = "CALC_MONTHLY_SPEND";
 export const CALC_CAT_WISE_DATA = "CALC_CAT_WISE_DATA";
 export const FILTER_BY_DATE = "FILTER_BY_DATE";
 export const UPDATE_PROFILE_DATA = "UPDATE_PROFILE_DATA";
+export const UPDATE_CURRENCY = "UPDATE_CURRENCY";
 
 export const calculateDashboardData = (transactions) => {
   return {
@@ -52,6 +52,20 @@ export const updateProfile = (id, val) => {
   return {
     type: UPDATE_PROFILE_DATA,
     payload: { id, val },
+  };
+};
+
+// export const updateTransactions = (transactions, currency, rate) => {
+//   return {
+//     type: UPDATE_CURRENCY_IN_TXNS,
+//     payload: { transactions, currency, rate },
+//   };
+// };
+
+export const updateCurrency = (currency) => {
+  return {
+    type: UPDATE_CURRENCY,
+    payload: currency,
   };
 };
 
@@ -110,6 +124,10 @@ const profileReducer = (state = preloadedState.profile, action) => {
   if (action.type === UPDATE_PROFILE_DATA) {
     const { id, val } = action.payload;
     state = { ...state, [id]: val };
+  }
+
+  if (action.type === UPDATE_CURRENCY) {
+    state = { ...state, currency: action.payload };
   }
 
   return state;

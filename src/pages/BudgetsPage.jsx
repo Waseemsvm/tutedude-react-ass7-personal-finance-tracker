@@ -1,27 +1,40 @@
+import { connect } from "react-redux";
 import Button from "../components/Button";
 import ProgressIndItem from "../components/ProgressIndItem";
 import BudgetsPageStyles from "../styles/BudgetsPage.module.css";
+import { toast } from "react-toastify";
 
-export default function BudgetsPage() {
+function BudgetsPage(props) {
+  const { categories, budget } = props;
+
+  const dateVal = new Date().toISOString().substr(0, 10);
+  const notify = (e) => toast("Budget Updated Successfully");
+
   return (
     <div className={BudgetsPageStyles["budgets-page-cont"]}>
       <div className={BudgetsPageStyles["budgets-page"]}>
         <div className={BudgetsPageStyles["budgets-page-section1"]}>
           <div className={BudgetsPageStyles["budgets-page-header"]}>
             <h1>Budgets</h1>
-            <input type="date" />
+            <input type="date" value={dateVal} onChange={(e) => {}} />
           </div>
           <div className={BudgetsPageStyles["budgets-page-budget-setter"]}>
             <select name="" id="">
-              <option value="">Groceries</option>
-              <option value="">Groceries</option>
-              <option value="">Groceries</option>
-              <option value="">Groceries</option>
+              {categories.map((c) => (
+                <option key={c.key}>{c.value}</option>
+              ))}
             </select>
-            <input type="text" placeholder="Set your Budget" />
+            <input
+              type="text"
+              placeholder="Set your Budget"
+              value={budget}
+              onChange={(e) => {}}
+            />
           </div>
           <div className={BudgetsPageStyles["budgets-page-save-btn"]}>
-            <Button text={"Save"} />
+            <Button text={"Save"} onClick={(e) => {
+              notify();
+            }} />
           </div>
         </div>
         <hr />
@@ -55,3 +68,13 @@ export default function BudgetsPage() {
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    currency: state.profile.currency,
+    categories: state.profile.categories,
+    budget: state.profile.budget,
+  };
+};
+
+export default connect(mapStateToProps)(BudgetsPage);

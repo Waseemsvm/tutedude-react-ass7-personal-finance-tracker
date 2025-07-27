@@ -4,6 +4,7 @@ import NotFoundPage from "../pages/NotFoundPage";
 import TransactionPage from "../pages/TransactionPage";
 import BudgetsPage from "../pages/BudgetsPage";
 import ProfilePage from "../pages/ProfilePage";
+import { ToastContainer } from "react-toastify";
 export default function Main() {
   return (
     <div className="main">
@@ -14,6 +15,7 @@ export default function Main() {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

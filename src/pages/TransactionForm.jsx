@@ -1,26 +1,27 @@
+import { connect } from "react-redux";
 import Button from "../components/Button";
 import { useModal } from "../components/TransactionProvider";
 import TransactionPageStyles from "../styles/TransactionPage.module.css";
 
-export default function TransactionForm() {
-
-  const {showModal} = useModal();
+function TransactionForm(props) {
+  const { categories, types } = props;
+  const { showModal } = useModal();
   return (
     <div>
       <div>
         <h1>Create Transaction</h1>
         <div className={TransactionPageStyles["form-data"]}>
           <select name="" id="">
-            <option value="">Income </option>
-            <option value="">Expense </option>
+            {types.map((t) => (
+              <option key={t.key}>{t.value}</option>
+            ))}
           </select>
         </div>
         <div className={TransactionPageStyles["form-data"]}>
           <select name="" id="">
-            <option value="">Groceries</option>
-            <option value="">Groceries</option>
-            <option value="">Groceries</option>
-            <option value="">Groceries</option>
+            {categories.map((c) => (
+              <option key={c.key}>{c.value}</option>
+            ))}
           </select>
         </div>
         <div className={TransactionPageStyles["form-data"]}>
@@ -49,3 +50,12 @@ export default function TransactionForm() {
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    categories: state.profile.categories,
+    types: state.profile.types,
+  };
+};
+
+export default connect(mapStateToProps)(TransactionForm);

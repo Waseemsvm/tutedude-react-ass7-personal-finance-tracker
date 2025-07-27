@@ -20,6 +20,7 @@ function DashboardPage(props) {
     calculateDashboardData,
     calculateCatWiseData,
     calculateMonthlySpend,
+    symbol,
   } = props;
 
   useEffect((e) => {
@@ -108,7 +109,10 @@ function DashboardPage(props) {
         ))}
       </div>
       <div className={DashboardPageStyles["dash-chart-cont"]}>
-        <DashboardChart id={"chart1"} chartTitle={"Monthly spending trend"} />
+        <DashboardChart
+          id={"chart1"}
+          chartTitle={"Monthly spending trend (" + symbol + ")"}
+        />
         <DashboardChart
           id={"chart2"}
           chartTitle={"Category-wise expense split"}
@@ -137,10 +141,24 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    transactions: state.transactions,
+    transactions: state.transactions.map((t) => ({
+      ...t,
+      amount: Math.round(
+        t.amount *
+          (state.profile.currencyList.find(
+            (c) => c.key === state.profile.currency
+          )?.rate ?? 1)
+      ),
+    })),
     dashboardData: state.dashboard,
     mCat: state.dashboard.mCat,
     mMonths: state.dashboard.mMonths,
+    rate:
+      state.profile.currencyList.find((c) => c.key === state.profile.currency)
+        ?.rate ?? 1,
+    symbol:
+      state.profile.currencyList.find((c) => c.key === state.profile.currency)
+        ?.symbol ?? "₹",
   };
 };
 

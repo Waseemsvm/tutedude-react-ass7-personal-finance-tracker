@@ -2,14 +2,29 @@ import ProfileStyles from "../styles/Profile.module.css";
 import Button from "../components/Button";
 import { connect } from "react-redux";
 import { useModal } from "../components/TransactionProvider";
-import { updateProfile } from "../app_state/TransactionReducer";
+import { updateCurrency, updateProfile } from "../app_state/TransactionReducer";
+import { toast } from "react-toastify";
 
 function EditProfileForm(props) {
-  const { profilepic, name, currency, dob, email, updateProfile } = props;
+  const {
+    profilepic,
+    name,
+    currency,
+    dob,
+    email,
+    updateProfile,
+    currencyList,
+    updateCurrency,
+  } = props;
   const { showModal } = useModal();
+  const notify = (e) => toast("Profile Updated Successfully");
 
   const updateData = (e) => {
     updateProfile(e.target.id, e.target.value);
+    if (e.target.id === "currency") {
+      const rate = currencyList.find((c) => c.key === e.target.value)?.rate;
+      updateCurrency(e.target.value);
+    }
   };
 
   return (
@@ -17,6 +32,7 @@ function EditProfileForm(props) {
       action=""
       className={ProfileStyles["form"]}
       onSubmit={(e) => {
+        notify();
         e.preventDefault();
         showModal(false);
       }}
@@ -53,19 +69,25 @@ function EditProfileForm(props) {
             onChange={updateData}
           />
         </div>
-        <div className={ProfileStyles["form-data"]} onChange={updateData}>
-          <select name="" id="currency">
-            <option key="in">₹ ( Indian Rupee )</option>
-            <option key="us">$ ( US Dollar )</option>
-            <option key="eu">€ ( Euro )</option>
-            <option key="po">£ ( British Pound Sterling )</option>
+        <div className={ProfileStyles["form-data"]}>
+          <select
+            name="currency"
+            id="currency"
+            value={currency}
+            onChange={updateData}
+          >
+            {currencyList.map((c) => (
+              <option key={c.key} value={c.key}>
+                {c.value}
+              </option>
+            ))}
           </select>
         </div>
 
         <div className={ProfileStyles["form-data"]}>
           <Button
             type="submit"
-            text={"Save"}
+            text={"Close"}
             className={ProfileStyles["save-btn"]}
             onClick={(e) => showModal(false)}
           />
@@ -80,6 +102,9 @@ const mapDispatchToProps = (dispatch) => {
     updateProfile: (id, val) => {
       dispatch(updateProfile(id, val));
     },
+    updateCurrency: (currency) => {
+      dispatch(updateCurrency(currency));
+    },
   };
 };
 
@@ -90,6 +115,8 @@ const mapStateToProps = (state) => {
     currency: state.profile.currency,
     dob: state.profile.dob,
     email: state.profile.email,
+    currencyList: state.profile.currencyList,
+    org_transactions: state.profile.orgTransactions,
   };
 };
 

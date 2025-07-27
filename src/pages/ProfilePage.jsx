@@ -21,6 +21,7 @@ function ProfilePage(props) {
     email,
     name,
     currency,
+    rate,
   } = props;
 
   useEffect((e) => {
@@ -51,8 +52,14 @@ function ProfilePage(props) {
           </p>
         </div>
         <div className={ProfilePageStyles["amount-card-cont"]}>
-          <AmountCard amount={totalExpenses} title={"Total Expenses"} />
-          <AmountCard amount={savings} title={"Total Savings"} />
+          <AmountCard
+            amount={Math.round(totalExpenses * rate)}
+            title={"Total Expenses"}
+          />
+          <AmountCard
+            amount={Math.round(savings * rate)}
+            title={"Total Savings"}
+          />
         </div>
         <div className={ProfilePageStyles["profile-card-footer"]}>
           <Button
@@ -88,6 +95,12 @@ const mapStateToProps = (state) => {
     email: state.profile.email,
     name: state.profile.name,
     currency: state.profile.currency,
+    rate:
+      state.profile.currencyList.find((c) => c.key === state.profile.currency)
+        ?.rate ?? 1,
+    symbol:
+      state.profile.currencyList.find((c) => c.key === state.profile.currency)
+        ?.symbol ?? "₹",
   };
 };
 
