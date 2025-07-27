@@ -25,7 +25,7 @@
 
 .overlay-cont-container .overlay-cont {
   width: 500px;
-  height: 500px;
+  /* height: 500px; */
   background-color: white;
   border-radius: 10px;
   box-shadow: #0000003d 0px 3px 8px;

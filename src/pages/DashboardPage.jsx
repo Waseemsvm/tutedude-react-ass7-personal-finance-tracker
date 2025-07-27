@@ -21,7 +21,6 @@ function DashboardPage(props) {
     calculateCatWiseData,
     calculateMonthlySpend,
   } = props;
-  const dispatch = useDispatch();
 
   useEffect((e) => {
     calculateDashboardData(transactions);

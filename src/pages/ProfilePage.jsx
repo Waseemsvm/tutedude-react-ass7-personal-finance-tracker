@@ -5,9 +5,30 @@ import Button from "../components/Button";
 import { useModal } from "../components/TransactionProvider";
 import Modal from "../components/Modal";
 import EditProfileForm from "./EditProfileForm";
+import { connect } from "react-redux";
+import { calculateDashboardData } from "../app_state/TransactionReducer";
+import { useEffect } from "react";
 
-export default function ProfilePage() {
+function ProfilePage(props) {
   const { showModal } = useModal();
+
+  const {
+    savings,
+    totalExpenses,
+    transactions,
+    calculateDashboardData,
+    dob,
+    email,
+    name,
+    currency,
+  } = props;
+
+  useEffect((e) => {
+    calculateDashboardData(transactions);
+  }, []);
+
+  console.log(transactions, totalExpenses, savings);
+
   return (
     <div className={ProfilePageStyles.profile}>
       <div className={ProfilePageStyles["profile-card"]}>
@@ -15,22 +36,23 @@ export default function ProfilePage() {
           <img src={profilePic} alt="profile picture" />
           <div>
             <h1>Profile</h1>
-            <h3>Waseem Akram P</h3>
-            <p className={ProfilePageStyles.email}>waseemsvm14@gmail.com</p>
+            <h3>{name}</h3>
+            <p className={ProfilePageStyles.email}>{email}</p>
           </div>
         </div>
         <div className={ProfilePageStyles["currency-cont"]}>
-          <p>Default Currency</p>
-          <select name="" id="">
-            <option key="in">₹ ( Indian Rupee )</option>
-            <option key="us">$ ( US Dollar )</option>
-            <option key="eu">€ ( Euro )</option>
-            <option key="po">£ ( British Pound Sterling )</option>
-          </select>
+          <p>
+            {" "}
+            {/* <strong>Default Currency:</strong> ₹ ( Indian Rupee ) */}
+            <strong>Default Currency:</strong> {currency}
+          </p>
+          <p>
+            <strong>Date of Birth:</strong> {dob}
+          </p>
         </div>
         <div className={ProfilePageStyles["amount-card-cont"]}>
-          <AmountCard amount={12000} title={"Total Expenses"} />
-          <AmountCard amount={12000} title={"Total Savings"} />
+          <AmountCard amount={totalExpenses} title={"Total Expenses"} />
+          <AmountCard amount={savings} title={"Total Savings"} />
         </div>
         <div className={ProfilePageStyles["profile-card-footer"]}>
           <Button
@@ -43,8 +65,30 @@ export default function ProfilePage() {
       </div>
       <Modal>
         <EditProfileForm />
-        <Button text={"Save"} onClick={(e) => showModal(false)} />
       </Modal>
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    calculateDashboardData: (transactions) => {
+      dispatch(calculateDashboardData(transactions));
+    },
+  };
+};
+
+const mapStateToProps = (state) => {
+  console.log(state.dashboard);
+  return {
+    savings: state.dashboard.savings,
+    totalExpenses: state.dashboard.totalExpenses,
+    transactions: state.transactions,
+    dob: state.profile.dob,
+    email: state.profile.email,
+    name: state.profile.name,
+    currency: state.profile.currency,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage);

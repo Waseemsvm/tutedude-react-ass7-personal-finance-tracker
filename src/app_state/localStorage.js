@@ -12,11 +12,20 @@ const dashboardInitialState = {
   filterDate: new Date().toISOString().substr(0, 10),
 };
 
+const profileState = {
+  name: "Guest",
+  dob: "1999-03-10",
+  src: "/src/assets/profile-pic.jpg",
+  currency: "₹ ( Indian Rupee )",
+  email: "",
+};
+
 export const loadState = () => {
   try {
     const serialized = localStorage.getItem("app_state"); // fetch state from the localstorage
     if (serialized === null) {
-      data.dashboardInitialState = dashboardInitialState;
+      data.dashboard = dashboardInitialState;
+      data.profile = profileState;
       return data;
     } // if laoding first time return intial/default data
 

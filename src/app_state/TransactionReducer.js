@@ -1,4 +1,4 @@
-import { combineReducers, createStore } from "redux";
+import { __DO_NOT_USE__ActionTypes, combineReducers, createStore } from "redux";
 import { loadState, saveState } from "./localStorage";
 import { createSlice } from "@reduxjs/toolkit";
 
@@ -14,22 +14,11 @@ const fetchTransaction = () => {
   };
 };
 
-// const dashBoardInitialState = {
-//   isLoading: false,
-//   totalIncome: 0,
-//   totalExpenses: 0,
-//   remBudget: 0,
-//   savings: 0,
-//   mCat: {},
-//   mMonths: {},
-//   expenses: [],
-//   filterDate: new Date().toISOString().substr(0, 10),
-// };
-
 export const CALCULATE_DASHBOARD_DATA = "CALCULATE_DASHBOARD_DATA";
 export const CALC_MONTHLY_SPEND = "CALC_MONTHLY_SPEND";
 export const CALC_CAT_WISE_DATA = "CALC_CAT_WISE_DATA";
 export const FILTER_BY_DATE = "FILTER_BY_DATE";
+export const UPDATE_PROFILE_DATA = "UPDATE_PROFILE_DATA";
 
 export const calculateDashboardData = (transactions) => {
   return {
@@ -59,10 +48,14 @@ export const filterByDate = (transactions, dateVal) => {
   };
 };
 
-const dashBoardReducer = (
-  state = preloadedState.dashboard,
-  action
-) => {
+export const updateProfile = (id, val) => {
+  return {
+    type: UPDATE_PROFILE_DATA,
+    payload: { id, val },
+  };
+};
+
+const dashBoardReducer = (state = preloadedState.dashboard, action) => {
   state = { ...state };
   let transactions = [...(action.payload?.transactions ?? [])];
   switch (action.type) {
@@ -112,9 +105,20 @@ const transReducer = (state = preloadedState.transactions, action) => {
   return state;
 };
 
+const profileReducer = (state = preloadedState.profile, action) => {
+  state = { ...state };
+  if (action.type === UPDATE_PROFILE_DATA) {
+    const { id, val } = action.payload;
+    state = { ...state, [id]: val };
+  }
+
+  return state;
+};
+
 const rootReducer = combineReducers({
   transactions: transReducer,
   dashboard: dashBoardReducer,
+  profile: profileReducer,
 });
 
 const store = createStore(rootReducer);
