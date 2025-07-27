@@ -4,28 +4,67 @@ import DashboardChart from "../components/DashboardChart";
 import DashboardPageStyles from "../styles/Dashboard.module.css";
 import ApexCharts from "apexcharts";
 import DashboardTable from "../components/DashboardTable";
-import { useSelector } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
+import {
+  calculateCatWiseData,
+  calculateDashboardData,
+  calculateMonthlySpend,
+} from "../app_state/TransactionReducer";
 
-export default function DashboardPage() {
-  const transactions = useSelector((state) => state.transactions);
+function DashboardPage(props) {
+  const {
+    transactions,
+    dashboardData,
+    mCat,
+    mMonths,
+    calculateDashboardData,
+    calculateCatWiseData,
+    calculateMonthlySpend,
+  } = props;
+  const dispatch = useDispatch();
 
-  let totalIncome = 0;
-  let totalExpenses = 0;
-  const mCat = {};
-  const mMonths = {};
-  transactions.forEach((i) => {
-    if (i.type === "Income") totalIncome += i.amount;
-    else if (i.type === "Expense") {
-      totalExpenses += i.amount;
-      const month = new Date(i.date).toString().slice(4, 7);
-      mMonths[month] ??= 0;
-      mMonths[month] += i.amount;
-      const cat = i.category;
-      mCat[cat] ??= 0;
-      mCat[cat] += i.amount;
-    }
-    // (catMap[i.category] ??= []).push(i);
-  });
+  useEffect((e) => {
+    calculateDashboardData(transactions);
+    calculateCatWiseData(transactions);
+    calculateMonthlySpend(transactions);
+  }, []);
+
+  useEffect(
+    (e) => {
+      const chart1Opts = {
+        chart: {
+          type: "bar",
+        },
+        series: barChartSeries,
+      };
+
+      const chart2Opts = {
+        chart: {
+          type: "pie",
+        },
+        series: Object.values(mCat),
+        labels: Object.keys(mCat),
+      };
+
+      const chart1 = new ApexCharts(
+        document.querySelector("#chart1"),
+        chart1Opts
+      );
+      const chart2 = new ApexCharts(
+        document.querySelector("#chart2"),
+        chart2Opts
+      );
+      chart1.render();
+      chart2.render();
+
+      return () => {
+        chart1.destroy();
+        chart2.destroy();
+      };
+    },
+    [mCat, mMonths]
+  );
+
   const barChartSeries = [
     {
       data: [],
@@ -38,55 +77,28 @@ export default function DashboardPage() {
     });
   }
 
-  console.log(mMonths);
-  let savings = totalIncome - totalExpenses;
-  let remBudget = 0;
-
   const summary = [
     {
       title: "Total Income",
-      amount: totalIncome,
+      // amount: totalIncome,
+      amount: dashboardData.totalIncome,
     },
     {
       title: "Total Expenses",
-      amount: totalExpenses,
+      // amount: totalExpenses,
+      amount: dashboardData.totalExpenses,
     },
     {
       title: "Remaining Budget",
-      amount: remBudget,
+      // amount: remBudget,
+      amount: dashboardData.remBudget,
     },
     {
       title: "Savings",
-      amount: savings,
+      // amount: savings,
+      amount: dashboardData.savings,
     },
   ];
-  const chart1Opts = {
-    chart: {
-      type: "bar",
-    },
-    series: barChartSeries,
-  };
-
-  const chart2Opts = {
-    chart: {
-      type: "pie",
-    },
-    series: Object.values(mCat),
-    labels: Object.keys(mCat),
-  };
-
-  useEffect((e) => {
-    const chart1 = new ApexCharts(
-      document.querySelector("#chart1"),
-      chart1Opts
-    );
-    const chart2 = new ApexCharts(
-      document.querySelector("#chart2"),
-      chart2Opts
-    );
-    chart1.render();
-    chart2.render();
-  }, []);
 
   return (
     <div className={DashboardPageStyles.dashboard}>
@@ -109,3 +121,28 @@ export default function DashboardPage() {
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    calculateMonthlySpend: (transactions) => {
+      dispatch(calculateMonthlySpend(transactions));
+    },
+    calculateCatWiseData: (transactions) => {
+      dispatch(calculateCatWiseData(transactions));
+    },
+    calculateDashboardData: (transactions) => {
+      dispatch(calculateDashboardData(transactions));
+    },
+  };
+};
+
+const mapStateToProps = (state) => {
+  return {
+    transactions: state.transactions,
+    dashboardData: state.dashboard,
+    mCat: state.dashboard.mCat,
+    mMonths: state.dashboard.mMonths,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);

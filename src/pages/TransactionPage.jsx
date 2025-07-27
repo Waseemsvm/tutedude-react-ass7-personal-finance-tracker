@@ -2,11 +2,12 @@ import { useSelector } from "react-redux";
 import Button from "../components/Button";
 import TransactionPageStyles from "../styles/TransactionPage.module.css";
 import TransactionForm from "./TransactionForm";
-import { useTransaction } from "../components/TransactionProvider";
+import { ModalProvider, useModal } from "../components/TransactionProvider";
+import Modal from "../components/Modal";
 
 export default function TransactionPage() {
   const transactions = useSelector((state) => state.transactions);
-  const { showForm } = useTransaction();
+  const { showModal } = useModal();
 
   return (
     <div className={TransactionPageStyles["trans-page-cont"]}>
@@ -15,7 +16,7 @@ export default function TransactionPage() {
         <Button
           text={"Add"}
           onClick={(e) => {
-            showForm(true);
+            showModal(true);
           }}
         />
       </div>
@@ -43,7 +44,7 @@ export default function TransactionPage() {
                   <Button
                     text={"Edit"}
                     onClick={(e) => {
-                      showForm(true);
+                      showModal(true);
                     }}
                   />
                 </td>
@@ -55,7 +56,9 @@ export default function TransactionPage() {
           </tbody>
         </table>
       </div>
-      <TransactionForm />
+      <Modal>
+        <TransactionForm />
+      </Modal>
     </div>
   );
 }

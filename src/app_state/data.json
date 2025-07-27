@@ -11,35 +11,35 @@
             "type": "Expense",
             "amount": 120,
             "category": "Groceries",
-            "date": "2025-03-02",
+            "date": "2025-03-01",
             "description": "Weekly groceries"
         },
         {
             "type": "Expense",
             "amount": 45,
             "category": "Entertainment",
-            "date": "2025-03-03",
+            "date": "2025-03-01",
             "description": "Movie night"
         },
         {
             "type": "Expense",
             "amount": 60,
             "category": "Transportation",
-            "date": "2025-03-04",
+            "date": "2025-03-02",
             "description": "Fuel charges"
         },
         {
             "type": "Expense",
             "amount": 300,
             "category": "Rent",
-            "date": "2025-03-05",
+            "date": "2025-03-02",
             "description": "Monthly rent"
         },
         {
             "type": "Income",
             "amount": 1000,
             "category": "Salary",
-            "date": "2025-03-07",
+            "date": "2025-03-03",
             "description": "Side job payout"
         },
         {

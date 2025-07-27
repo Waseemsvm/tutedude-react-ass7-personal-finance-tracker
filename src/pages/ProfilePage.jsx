@@ -2,8 +2,12 @@ import ProfilePageStyles from "../styles/Profile.module.css";
 import profilePic from "../assets/profile-pic.jpg";
 import AmountCard from "../components/AmountCard";
 import Button from "../components/Button";
+import { useModal } from "../components/TransactionProvider";
+import Modal from "../components/Modal";
+import EditProfileForm from "./EditProfileForm";
 
 export default function ProfilePage() {
+  const { showModal } = useModal();
   return (
     <div className={ProfilePageStyles.profile}>
       <div className={ProfilePageStyles["profile-card"]}>
@@ -11,7 +15,7 @@ export default function ProfilePage() {
           <img src={profilePic} alt="profile picture" />
           <div>
             <h1>Profile</h1>
-            <h2>Waseem Akram P</h2>
+            <h3>Waseem Akram P</h3>
             <p className={ProfilePageStyles.email}>waseemsvm14@gmail.com</p>
           </div>
         </div>
@@ -29,9 +33,18 @@ export default function ProfilePage() {
           <AmountCard amount={12000} title={"Total Savings"} />
         </div>
         <div className={ProfilePageStyles["profile-card-footer"]}>
-          <Button text={"Edit"} />
+          <Button
+            text={"Edit"}
+            onClick={(e) => {
+              showModal(true);
+            }}
+          />
         </div>
       </div>
+      <Modal>
+        <EditProfileForm />
+        <Button text={"Save"} onClick={(e) => showModal(false)} />
+      </Modal>
     </div>
   );
 }

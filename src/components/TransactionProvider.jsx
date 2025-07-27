@@ -1,17 +1,17 @@
 import { createContext, useContext, useState } from "react";
 
-const TransactionContext = createContext();
+const ModalContext = createContext();
 
-export const TransactionProvider = ({ children }) => {
-  const [showTransactionForm, setShowTransactionForm] = useState(false);
-  const showForm = (value) => {
-    setShowTransactionForm(value);
+export const ModalProvider = ({ children }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = (value) => {
+    setIsModalOpen(value);
   };
   return (
-    <TransactionContext.Provider value={{ showForm, showTransactionForm }}>
+    <ModalContext.Provider value={{ showModal, isModalOpen }}>
       {children}
-    </TransactionContext.Provider>
+    </ModalContext.Provider>
   );
 };
 
-export const useTransaction = () => useContext(TransactionContext);
+export const useModal = () => useContext(ModalContext);
