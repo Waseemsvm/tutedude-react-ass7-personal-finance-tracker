@@ -19,6 +19,9 @@ export const CALC_CAT_WISE_DATA = "CALC_CAT_WISE_DATA";
 export const FILTER_BY_DATE = "FILTER_BY_DATE";
 export const UPDATE_PROFILE_DATA = "UPDATE_PROFILE_DATA";
 export const UPDATE_CURRENCY = "UPDATE_CURRENCY";
+export const ADD_DATA_TO_TXN = "ADD_DATA_TO_TXN";
+export const EDIT_TXN_DATA = "EDIT_TXN_DATA";
+export const DELETE_TXN_DATA = "DELETE_TXN_DATA";
 
 export const calculateDashboardData = (transactions) => {
   return {
@@ -52,6 +55,20 @@ export const updateProfile = (id, val) => {
   return {
     type: UPDATE_PROFILE_DATA,
     payload: { id, val },
+  };
+};
+
+export const addTransaction = (transaction) => {
+  return {
+    type: ADD_DATA_TO_TXN,
+    payload: { transaction },
+  };
+};
+
+export const deleteTransaction = (id) => {
+  return {
+    type: DELETE_TXN_DATA,
+    payload: id,
   };
 };
 
@@ -116,6 +133,14 @@ const dashBoardReducer = (state = preloadedState.dashboard, action) => {
 };
 
 const transReducer = (state = preloadedState.transactions, action) => {
+  state = [...state];
+  if (action.type === ADD_DATA_TO_TXN)
+    state.unshift(action.payload.transaction);
+  if (action.type === DELETE_TXN_DATA) {
+    const idx = state.findIndex((txn) => txn.id === action.payload);
+    if (idx >= 0) state.splice(idx, 1);
+  }
+
   return state;
 };
 

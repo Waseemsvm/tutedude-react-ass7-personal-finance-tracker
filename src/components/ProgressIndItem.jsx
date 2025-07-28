@@ -8,7 +8,7 @@ export default function ProgressIndItem({ title, budget, amount }) {
         <p>₹7400 / 10000</p>
       </div>
       <div className={ProgressIndItemStyles["progress-bar"]}>
-        <div id="progress" class={ProgressIndItemStyles["progress"]}></div>
+        <div id="progress" className={ProgressIndItemStyles["progress"]}></div>
       </div>
     </div>
   );

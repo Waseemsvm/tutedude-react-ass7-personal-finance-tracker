@@ -76,6 +76,12 @@
   }
 }
 
+@media screen and (max-width: 680px) {
+  .dash-chart-cont {
+    /* grid-template-columns: 1fr; */
+  }
+}
+
 @media screen and (max-width: 576px) {
   .amount-card-cont {
     grid-template-columns: 1fr;

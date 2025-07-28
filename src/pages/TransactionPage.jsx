@@ -4,11 +4,11 @@ import TransactionPageStyles from "../styles/TransactionPage.module.css";
 import TransactionForm from "./TransactionForm";
 import { useModal } from "../components/TransactionProvider";
 import Modal from "../components/Modal";
+import { deleteTransaction } from "../app_state/TransactionReducer";
 
 function TransactionPage(props) {
-  const transactions = useSelector((state) => state.transactions);
   const { showModal } = useModal();
-  const { currencyList, currency, symbol } = props;
+  const { currencyList, currency, symbol, transactions, deleteTxn } = props;
   const rate = currencyList.find((c) => c.key === currency)?.rate ?? 1;
 
   return (
@@ -35,8 +35,8 @@ function TransactionPage(props) {
             </tr>
           </thead>
           <tbody>
-            {transactions.map((txn, idx) => (
-              <tr key={idx}>
+            {transactions.map((txn) => (
+              <tr key={txn.id}>
                 <td>{txn.type}</td>
                 <td>{Math.round(txn.amount * rate)}</td>
                 <td>{txn.category}</td>
@@ -51,7 +51,12 @@ function TransactionPage(props) {
                   />
                 </td>
                 <td>
-                  <Button text={"Delete"} />
+                  <Button
+                    text={"Delete"}
+                    onClick={(e) => {
+                      deleteTxn(txn.id);
+                    }}
+                  />
                 </td>
               </tr>
             ))}
@@ -67,6 +72,7 @@ function TransactionPage(props) {
 
 const mapStateToProps = (state) => {
   return {
+    transactions: state.transactions,
     currency: state.profile.currency,
     currencyList: state.profile.currencyList,
     rate:
@@ -78,4 +84,12 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(TransactionPage);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteTxn: (id) => {
+      dispatch(deleteTransaction(id));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TransactionPage);

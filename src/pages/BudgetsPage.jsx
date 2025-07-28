@@ -5,7 +5,7 @@ import BudgetsPageStyles from "../styles/BudgetsPage.module.css";
 import { toast } from "react-toastify";
 
 function BudgetsPage(props) {
-  const { categories, budget } = props;
+  const { categories, budget, rate, symbol } = props;
 
   const dateVal = new Date().toISOString().substr(0, 10);
   const notify = (e) => toast("Budget Updated Successfully");
@@ -24,17 +24,23 @@ function BudgetsPage(props) {
                 <option key={c.key}>{c.value}</option>
               ))}
             </select>
-            <input
-              type="text"
-              placeholder="Set your Budget"
-              value={budget}
-              onChange={(e) => {}}
-            />
+            <div className={BudgetsPageStyles['budget-cont']}>
+              <p className={BudgetsPageStyles.symbol}>{symbol}</p>
+              <input
+                type="text"
+                placeholder="Set your Budget"
+                value={budget}
+                onChange={(e) => {}}
+              />
+            </div>
           </div>
           <div className={BudgetsPageStyles["budgets-page-save-btn"]}>
-            <Button text={"Save"} onClick={(e) => {
-              notify();
-            }} />
+            <Button
+              text={"Save"}
+              onClick={(e) => {
+                notify();
+              }}
+            />
           </div>
         </div>
         <hr />
@@ -74,6 +80,12 @@ const mapStateToProps = (state) => {
     currency: state.profile.currency,
     categories: state.profile.categories,
     budget: state.profile.budget,
+    rate:
+      state.profile.currencyList.find((c) => c.key === state.profile.currency)
+        ?.rate ?? 1,
+    symbol:
+      state.profile.currencyList.find((c) => c.key === state.profile.currency)
+        ?.symbol ?? "₹",
   };
 };
 

@@ -5,357 +5,408 @@
             "amount": 1000,
             "category": "Salary",
             "date": "2025-03-01",
-            "description": "March Salary"
+            "description": "March Salary",
+            "id": 1
         },
         {
             "type": "Expense",
             "amount": 120,
             "category": "Groceries",
             "date": "2025-03-01",
-            "description": "Weekly groceries"
+            "description": "Weekly groceries",
+            "id": 2
         },
         {
             "type": "Expense",
             "amount": 45,
             "category": "Entertainment",
             "date": "2025-03-01",
-            "description": "Movie night"
+            "description": "Movie night",
+            "id": 3
         },
         {
             "type": "Expense",
             "amount": 60,
             "category": "Transportation",
             "date": "2025-03-02",
-            "description": "Fuel charges"
+            "description": "Fuel charges",
+            "id": 4
         },
         {
             "type": "Expense",
             "amount": 300,
             "category": "Rent",
             "date": "2025-03-02",
-            "description": "Monthly rent"
+            "description": "Monthly rent",
+            "id": 5
         },
         {
             "type": "Income",
             "amount": 1000,
             "category": "Salary",
             "date": "2025-03-03",
-            "description": "Side job payout"
+            "description": "Side job payout",
+            "id": 6
         },
         {
             "type": "Expense",
             "amount": 80,
             "category": "Groceries",
             "date": "2025-03-08",
-            "description": "Grocery shopping"
+            "description": "Grocery shopping",
+            "id": 7
         },
         {
             "type": "Expense",
             "amount": 90,
             "category": "Entertainment",
             "date": "2025-03-09",
-            "description": "Concert ticket"
+            "description": "Concert ticket",
+            "id": 8
         },
         {
             "type": "Expense",
             "amount": 50,
             "category": "Transportation",
             "date": "2025-03-10",
-            "description": "Bus pass"
+            "description": "Bus pass",
+            "id": 9
         },
         {
             "type": "Expense",
             "amount": 250,
             "category": "Rent",
             "date": "2025-03-11",
-            "description": "Studio rent"
+            "description": "Studio rent",
+            "id": 10
         },
         {
             "type": "Income",
             "amount": 500,
             "category": "Salary",
             "date": "2025-03-13",
-            "description": "Consulting work"
+            "description": "Consulting work",
+            "id": 11
         },
         {
             "type": "Expense",
             "amount": 60,
             "category": "Groceries",
             "date": "2025-03-14",
-            "description": "Vegetables and snacks"
+            "description": "Vegetables and snacks",
+            "id": 12
         },
         {
             "type": "Expense",
             "amount": 40,
             "category": "Entertainment",
             "date": "2025-03-15",
-            "description": "Streaming subscription"
+            "description": "Streaming subscription",
+            "id": 13
         },
         {
             "type": "Income",
             "amount": 2000,
             "category": "Salary",
             "date": "2025-04-01",
-            "description": "April salary"
+            "description": "April salary",
+            "id": 14
         },
         {
             "type": "Expense",
             "amount": 110,
             "category": "Groceries",
             "date": "2025-04-02",
-            "description": "Monthly groceries"
+            "description": "Monthly groceries",
+            "id": 15
         },
         {
             "type": "Expense",
             "amount": 300,
             "category": "Rent",
             "date": "2025-04-03",
-            "description": "Flat rent"
+            "description": "Flat rent",
+            "id": 16
         },
         {
             "type": "Expense",
             "amount": 90,
             "category": "Transportation",
             "date": "2025-04-04",
-            "description": "Taxi fares"
+            "description": "Taxi fares",
+            "id": 17
         },
         {
             "type": "Expense",
             "amount": 70,
             "category": "Entertainment",
             "date": "2025-04-05",
-            "description": "Comedy show"
+            "description": "Comedy show",
+            "id": 18
         },
         {
             "type": "Expense",
             "amount": 45,
             "category": "Groceries",
             "date": "2025-04-06",
-            "description": "Snack shopping"
+            "description": "Snack shopping",
+            "id": 19
         },
         {
             "type": "Income",
             "amount": 1000,
             "category": "Salary",
             "date": "2025-04-07",
-            "description": "Project milestone bonus"
+            "description": "Project milestone bonus",
+            "id": 20
         },
         {
             "type": "Expense",
             "amount": 55,
             "category": "Transportation",
             "date": "2025-04-08",
-            "description": "Bike fuel"
+            "description": "Bike fuel",
+            "id": 21
         },
         {
             "type": "Expense",
             "amount": 280,
             "category": "Rent",
             "date": "2025-04-09",
-            "description": "Shared flat rent"
+            "description": "Shared flat rent",
+            "id": 22
         },
         {
             "type": "Expense",
             "amount": 100,
             "category": "Entertainment",
             "date": "2025-04-10",
-            "description": "Gaming subscription"
+            "description": "Gaming subscription",
+            "id": 23
         },
         {
             "type": "Expense",
             "amount": 130,
             "category": "Groceries",
             "date": "2025-04-11",
-            "description": "Big bazaar shopping"
+            "description": "Big bazaar shopping",
+            "id": 24
         },
         {
             "type": "Income",
             "amount": 1500,
             "category": "Salary",
             "date": "2025-04-13",
-            "description": "Performance bonus"
+            "description": "Performance bonus",
+            "id": 25
         },
         {
             "type": "Expense",
             "amount": 50,
             "category": "Transportation",
             "date": "2025-04-14",
-            "description": "Auto rides"
+            "description": "Auto rides",
+            "id": 26
         },
         {
             "type": "Income",
             "amount": 2200,
             "category": "Salary",
             "date": "2025-05-01",
-            "description": "May Salary"
+            "description": "May Salary",
+            "id": 27
         },
         {
             "type": "Expense",
             "amount": 60,
             "category": "Groceries",
             "date": "2025-05-02",
-            "description": "Groceries for the week"
+            "description": "Groceries for the week",
+            "id": 28
         },
         {
             "type": "Expense",
             "amount": 250,
             "category": "Rent",
             "date": "2025-05-03",
-            "description": "Apartment rent"
+            "description": "Apartment rent",
+            "id": 29
         },
         {
             "type": "Expense",
             "amount": 75,
             "category": "Transportation",
             "date": "2025-05-04",
-            "description": "Metro card recharge"
+            "description": "Metro card recharge",
+            "id": 30
         },
         {
             "type": "Expense",
             "amount": 85,
             "category": "Entertainment",
             "date": "2025-05-05",
-            "description": "Live music event"
+            "description": "Live music event",
+            "id": 31
         },
         {
             "type": "Income",
             "amount": 600,
             "category": "Salary",
             "date": "2025-05-06",
-            "description": "Freelance gig payout"
+            "description": "Freelance gig payout",
+            "id": 32
         },
         {
             "type": "Expense",
             "amount": 95,
             "category": "Groceries",
             "date": "2025-05-07",
-            "description": "Organic store shopping"
+            "description": "Organic store shopping",
+            "id": 33
         },
         {
             "type": "Expense",
             "amount": 260,
             "category": "Rent",
             "date": "2025-05-08",
-            "description": "Flat rent"
+            "description": "Flat rent",
+            "id": 34
         },
         {
             "type": "Expense",
             "amount": 40,
             "category": "Transportation",
             "date": "2025-05-09",
-            "description": "Scooter fuel"
+            "description": "Scooter fuel",
+            "id": 35
         },
         {
             "type": "Expense",
             "amount": 60,
             "category": "Entertainment",
             "date": "2025-05-10",
-            "description": "Movie ticket"
+            "description": "Movie ticket",
+            "id": 36
         },
         {
             "type": "Expense",
             "amount": 100,
             "category": "Groceries",
             "date": "2025-05-11",
-            "description": "Weekend food"
+            "description": "Weekend food",
+            "id": 37
         },
         {
             "type": "Income",
             "amount": 1700,
             "category": "Salary",
             "date": "2025-05-12",
-            "description": "Job salary"
+            "description": "Job salary",
+            "id": 38
         },
         {
             "type": "Expense",
             "amount": 55,
             "category": "Transportation",
             "date": "2025-05-13",
-            "description": "Cab rides"
+            "description": "Cab rides",
+            "id": 39
         },
         {
             "type": "Income",
             "amount": 2100,
             "category": "Salary",
             "date": "2025-06-01",
-            "description": "June Salary"
+            "description": "June Salary",
+            "id": 40
         },
         {
             "type": "Expense",
             "amount": 110,
             "category": "Groceries",
             "date": "2025-06-02",
-            "description": "Monthly groceries"
+            "description": "Monthly groceries",
+            "id": 41
         },
         {
             "type": "Expense",
             "amount": 30,
             "category": "Entertainment",
             "date": "2025-06-03",
-            "description": "Online game pass"
+            "description": "Online game pass",
+            "id": 42
         },
         {
             "type": "Expense",
             "amount": 290,
             "category": "Rent",
             "date": "2025-06-04",
-            "description": "Studio rent"
+            "description": "Studio rent",
+            "id": 43
         },
         {
             "type": "Expense",
             "amount": 40,
             "category": "Transportation",
             "date": "2025-06-05",
-            "description": "Local transport"
+            "description": "Local transport",
+            "id": 44
         },
         {
             "type": "Income",
             "amount": 1250,
             "category": "Salary",
             "date": "2025-06-06",
-            "description": "Part-time work"
+            "description": "Part-time work",
+            "id": 45
         },
         {
             "type": "Expense",
             "amount": 55,
             "category": "Entertainment",
             "date": "2025-06-07",
-            "description": "Theatre show"
+            "description": "Theatre show",
+            "id": 46
         },
         {
             "type": "Expense",
             "amount": 75,
             "category": "Groceries",
             "date": "2025-06-08",
-            "description": "Organic produce"
+            "description": "Organic produce",
+            "id": 47
         },
         {
             "type": "Expense",
             "amount": 260,
             "category": "Rent",
             "date": "2025-06-09",
-            "description": "Room rent"
+            "description": "Room rent",
+            "id": 48
         },
         {
             "type": "Expense",
             "amount": 50,
             "category": "Transportation",
             "date": "2025-06-10",
-            "description": "Bus fare"
+            "description": "Bus fare",
+            "id": 49
         },
         {
             "type": "Expense",
             "amount": 90,
             "category": "Entertainment",
             "date": "2025-06-11",
-            "description": "Subscription bundle"
+            "description": "Subscription bundle",
+            "id": 50
         },
         {
             "type": "Income",
             "amount": 1500,
             "category": "Salary",
             "date": "2025-06-12",
-            "description": "Monthly salary"
+            "description": "Monthly salary",
+            "id": 51
         }
     ]
 }

@@ -56,6 +56,25 @@
   padding: 1rem;
 }
 
+.symbol {
+  width: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.budget-cont {
+  display: flex;
+  margin-left: 0.5rem;
+}
+
+.budget-cont input {
+  flex: auto;
+  padding-left: 1.5rem;
+}
 @media screen and (max-width: 576px) {
   .budgets-page {
     width: 100%;
@@ -102,5 +121,20 @@
   .progress-cont {
     max-height: unset;
     flex: auto;
+  }
+
+  .symbol {
+    width: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+
+    position: absolute;
+    margin-top: 0.8rem;
+  }
+
+  .budget-cont {
+    margin-left: 0rem;
   }
 }

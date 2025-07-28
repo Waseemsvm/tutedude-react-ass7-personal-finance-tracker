@@ -81,4 +81,11 @@
   justify-content: end;
 }
 
+.close-btn {
+}
 
+.close-btn,
+.save-btn {
+  padding: 0.75rem;
+  margin-right: 0.25rem;
+}
