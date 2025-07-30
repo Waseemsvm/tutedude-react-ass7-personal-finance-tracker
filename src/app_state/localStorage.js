@@ -52,18 +52,22 @@ const categories = [
   {
     key: "groceries",
     value: "Groceries",
+    budget: 3000,
   },
   {
     key: "entertainment",
     value: "Entertainment",
+    budget: 2000,
   },
   {
     key: "transportation",
     value: "Transportation",
+    budget: 4000,
   },
   {
     key: "rent",
     value: "Rent",
+    budget: 5000,
   },
 ];
 
@@ -87,7 +91,7 @@ export const loadState = () => {
       data.profile.currencyList = currencyList;
       data.profile.categories = categories;
       data.profile.types = types;
-      data.profile.budget = 5000;
+      // data.profile.budgetDate = new Date().toISOString().substr(0, 10);
       data.profile.orgTransactions = JSON.parse(
         JSON.stringify(data.transactions)
       );

@@ -5,11 +5,15 @@ import TransactionForm from "./TransactionForm";
 import { useModal } from "../components/TransactionProvider";
 import Modal from "../components/Modal";
 import { deleteTransaction } from "../app_state/TransactionReducer";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 function TransactionPage(props) {
   const { showModal } = useModal();
   const { currencyList, currency, symbol, transactions, deleteTxn } = props;
   const rate = currencyList.find((c) => c.key === currency)?.rate ?? 1;
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const notify = (message) => toast(message, { autoClose: 1000 });
 
   return (
     <div className={TransactionPageStyles["trans-page-cont"]}>
@@ -18,7 +22,9 @@ function TransactionPage(props) {
         <Button
           text={"Add"}
           onClick={(e) => {
+            localStorage.removeItem("data_to_edit");
             showModal(true);
+            setIsModalOpen(true);
           }}
         />
       </div>
@@ -46,7 +52,9 @@ function TransactionPage(props) {
                   <Button
                     text={"Edit"}
                     onClick={(e) => {
+                      localStorage.setItem("data_to_edit", JSON.stringify(txn));
                       showModal(true);
+                      setIsModalOpen(true);
                     }}
                   />
                 </td>
@@ -55,6 +63,7 @@ function TransactionPage(props) {
                     text={"Delete"}
                     onClick={(e) => {
                       deleteTxn(txn.id);
+                      notify("Transaction deleted Successfully?");
                     }}
                   />
                 </td>
@@ -64,7 +73,10 @@ function TransactionPage(props) {
         </table>
       </div>
       <Modal>
-        <TransactionForm />
+        <TransactionForm
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+        />
       </Modal>
     </div>
   );

@@ -17,7 +17,8 @@ function EditProfileForm(props) {
     updateCurrency,
   } = props;
   const { showModal } = useModal();
-  const notify = (e) => toast("Profile Updated Successfully");
+  const notify = (e) =>
+    toast("Profile Updated Successfully", { autoClose: 800 });
 
   const updateData = (e) => {
     updateProfile(e.target.id, e.target.value);

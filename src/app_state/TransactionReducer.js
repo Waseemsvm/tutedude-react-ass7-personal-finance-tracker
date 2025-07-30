@@ -22,11 +22,13 @@ export const UPDATE_CURRENCY = "UPDATE_CURRENCY";
 export const ADD_DATA_TO_TXN = "ADD_DATA_TO_TXN";
 export const EDIT_TXN_DATA = "EDIT_TXN_DATA";
 export const DELETE_TXN_DATA = "DELETE_TXN_DATA";
+export const UPDATE_BUDGET = "UPDATE_BUDGET";
+export const FILTER_BY_BUDGET = "FILTER_BY_BUDGET";
 
-export const calculateDashboardData = (transactions) => {
+export const calculateDashboardData = (transactions, categories) => {
   return {
     type: CALCULATE_DASHBOARD_DATA,
-    payload: { transactions },
+    payload: { transactions, categories },
   };
 };
 
@@ -65,10 +67,24 @@ export const addTransaction = (transaction) => {
   };
 };
 
+export const editTransaction = (obj) => {
+  return {
+    type: EDIT_TXN_DATA,
+    payload: obj,
+  };
+};
+
 export const deleteTransaction = (id) => {
   return {
     type: DELETE_TXN_DATA,
     payload: id,
+  };
+};
+
+export const filterByBudget = () => {
+  return {
+    type: FILTER_BY_BUDGET,
+    payload: {},
   };
 };
 
@@ -83,6 +99,13 @@ export const updateCurrency = (currency) => {
   return {
     type: UPDATE_CURRENCY,
     payload: currency,
+  };
+};
+
+export const updateBudget = (budget) => {
+  return {
+    type: UPDATE_BUDGET,
+    payload: budget,
   };
 };
 
@@ -101,7 +124,13 @@ const dashBoardReducer = (state = preloadedState.dashboard, action) => {
       });
 
       state.savings = state.totalIncome - state.totalExpenses;
-      state.remBudget = 0;
+      const totalBudget = action.payload.categories.reduce((acc, cat) => {
+        return acc + cat.budget;
+      }, 0);
+      state.remBudget =
+        totalBudget - state.totalExpenses < 0
+          ? 0
+          : totalBudget - state.totalExpenses;
     case CALC_MONTHLY_SPEND:
       const mMonths = {};
       transactions.forEach((i) => {
@@ -140,6 +169,11 @@ const transReducer = (state = preloadedState.transactions, action) => {
     const idx = state.findIndex((txn) => txn.id === action.payload);
     if (idx >= 0) state.splice(idx, 1);
   }
+  if (action.type === EDIT_TXN_DATA) {
+    const id = action.payload.id;
+    const idx = state.findIndex((i) => i.id === id);
+    if (idx >= 0) state.splice(idx, 1, action.payload);
+  }
 
   return state;
 };
@@ -153,6 +187,17 @@ const profileReducer = (state = preloadedState.profile, action) => {
 
   if (action.type === UPDATE_CURRENCY) {
     state = { ...state, currency: action.payload };
+  }
+
+  if (action.type === UPDATE_BUDGET) {
+    state = JSON.parse(JSON.stringify(state));
+    let cat = state.categories.find((cat) => cat.key === action.payload.key);
+    if (cat) cat.budget = action.payload.budget;
+    // state = { ...state, budget: action.payload };
+  }
+
+  if (action.type === FILTER_BY_BUDGET) {
+    debugger;
   }
 
   return state;

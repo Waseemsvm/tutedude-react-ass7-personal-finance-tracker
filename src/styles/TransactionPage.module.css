@@ -89,3 +89,8 @@
   padding: 0.75rem;
   margin-right: 0.25rem;
 }
+
+.error {
+  font-size: 0.75rem;
+  color: red;
+}

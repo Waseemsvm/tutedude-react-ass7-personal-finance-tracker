@@ -1,6 +1,7 @@
 import { connect, useSelector } from "react-redux";
 import DashboardPageStyles from "../styles/Dashboard.module.css";
 import { filterByDate } from "../app_state/TransactionReducer";
+import { useEffect } from "react";
 
 function DashboardTable(props) {
   const {
@@ -12,6 +13,10 @@ function DashboardTable(props) {
     symbol,
     rate,
   } = props;
+
+  useEffect((e) => {
+    updateDate(transactions, dateVal);
+  }, []);
 
   return (
     <div className={DashboardPageStyles["dash-table-cont"]}>

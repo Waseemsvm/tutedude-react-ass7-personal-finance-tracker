@@ -21,10 +21,12 @@ function DashboardPage(props) {
     calculateCatWiseData,
     calculateMonthlySpend,
     symbol,
+    categories,
+    rate,
   } = props;
 
   useEffect((e) => {
-    calculateDashboardData(transactions);
+    calculateDashboardData(transactions, categories);
     calculateCatWiseData(transactions);
     calculateMonthlySpend(transactions);
   }, []);
@@ -133,8 +135,8 @@ const mapDispatchToProps = (dispatch) => {
     calculateCatWiseData: (transactions) => {
       dispatch(calculateCatWiseData(transactions));
     },
-    calculateDashboardData: (transactions) => {
-      dispatch(calculateDashboardData(transactions));
+    calculateDashboardData: (transactions, categories) => {
+      dispatch(calculateDashboardData(transactions, categories));
     },
   };
 };
@@ -150,6 +152,7 @@ const mapStateToProps = (state) => {
           )?.rate ?? 1)
       ),
     })),
+    categories: state.profile.categories,
     dashboardData: state.dashboard,
     mCat: state.dashboard.mCat,
     mMonths: state.dashboard.mMonths,

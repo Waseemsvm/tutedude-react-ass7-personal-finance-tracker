@@ -22,10 +22,11 @@ function ProfilePage(props) {
     name,
     currency,
     rate,
+    categories,
   } = props;
 
   useEffect((e) => {
-    calculateDashboardData(transactions);
+    calculateDashboardData(transactions, categories);
   }, []);
 
   console.log(transactions, totalExpenses, savings);
@@ -79,8 +80,8 @@ function ProfilePage(props) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    calculateDashboardData: (transactions) => {
-      dispatch(calculateDashboardData(transactions));
+    calculateDashboardData: (transactions, categories) => {
+      dispatch(calculateDashboardData(transactions, categories));
     },
   };
 };
@@ -90,6 +91,7 @@ const mapStateToProps = (state) => {
   return {
     savings: state.dashboard.savings,
     totalExpenses: state.dashboard.totalExpenses,
+    categories: state.profile.categories,
     transactions: state.transactions,
     dob: state.profile.dob,
     email: state.profile.email,
