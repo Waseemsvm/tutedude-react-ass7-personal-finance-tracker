@@ -52,4 +52,26 @@ body,
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 0.75rem;
+}
+
+.footer-cont {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 576px) {
+  .footer-cont {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .footer-cont strong {
+    padding: 0.25rem;
+    font-size: 0.5rem;
+    word-break: keep-all;
+  }
 }

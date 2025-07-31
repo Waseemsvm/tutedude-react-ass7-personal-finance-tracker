@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 import { useModal } from "../components/TransactionProvider";
 import { updateCurrency, updateProfile } from "../app_state/TransactionReducer";
 import { toast } from "react-toastify";
+import profilePic from "../assets/profile-pic.jpg";
 
 function EditProfileForm(props) {
   const {
-    profilepic,
     name,
     currency,
     dob,
@@ -57,7 +57,7 @@ function EditProfileForm(props) {
     >
       <div className={ProfileStyles["form-cont"]}>
         <div className={ProfileStyles["form-data"]}>
-          <img src={avatar || profilepic} className={ProfileStyles["avatar"]} />
+          <img src={avatar || profilePic} className={ProfileStyles["avatar"]} />
           <input type="file" id="avatar" onChange={updateData} />
         </div>
         <div className={ProfileStyles["form-data"]}>
