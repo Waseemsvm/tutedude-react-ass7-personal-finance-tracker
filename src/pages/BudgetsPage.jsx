@@ -80,6 +80,12 @@ function BudgetsPage(props) {
         </div>
         <hr />
         <div className={BudgetsPageStyles["progress-cont"]}>
+          {!filteredTxns?.length && (
+            <div style={{
+              textAlign: "center"
+            }}>No Transactions available for {dateVal}</div>
+          )}
+
           {filteredTxns.map((t) => (
             <ProgressIndItem
               title={t.category}
