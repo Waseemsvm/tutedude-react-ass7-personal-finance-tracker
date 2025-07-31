@@ -22,6 +22,7 @@ function ProfilePage(props) {
     name,
     currency,
     rate,
+    avatar,
     categories,
   } = props;
 
@@ -29,13 +30,13 @@ function ProfilePage(props) {
     calculateDashboardData(transactions, categories);
   }, []);
 
-  console.log(transactions, totalExpenses, savings);
+  // console.log(transactions, totalExpenses, savings);
 
   return (
     <div className={ProfilePageStyles.profile}>
       <div className={ProfilePageStyles["profile-card"]}>
         <div className={ProfilePageStyles["profile-card-header"]}>
-          <img src={profilePic} alt="profile picture" />
+          <img src={avatar || profilePic} alt="profile picture" />
           <div>
             <h1>Profile</h1>
             <h3>{name}</h3>
@@ -53,14 +54,8 @@ function ProfilePage(props) {
           </p>
         </div>
         <div className={ProfilePageStyles["amount-card-cont"]}>
-          <AmountCard
-            amount={Math.round(totalExpenses * rate)}
-            title={"Total Expenses"}
-          />
-          <AmountCard
-            amount={Math.round(savings * rate)}
-            title={"Total Savings"}
-          />
+          <AmountCard amount={totalExpenses * rate} title={"Total Expenses"} />
+          <AmountCard amount={savings * rate} title={"Total Savings"} />
         </div>
         <div className={ProfilePageStyles["profile-card-footer"]}>
           <Button
@@ -94,6 +89,7 @@ const mapStateToProps = (state) => {
     categories: state.profile.categories,
     transactions: state.transactions,
     dob: state.profile.dob,
+    avatar: state.profile.avatar,
     email: state.profile.email,
     name: state.profile.name,
     currency: state.profile.currency,

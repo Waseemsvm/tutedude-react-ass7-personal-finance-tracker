@@ -7,7 +7,7 @@ function AmountCard(props) {
     <div className={DashBoardPageStyles["amount-card"]}>
       <h3 className={DashBoardPageStyles["amount-card-header"]}>{title}</h3>
       <h1 className={DashBoardPageStyles["amount-card-amount"]}>
-        {symbol} {Math.round(amount * rate)}
+        {symbol} {(amount * rate).toFixed(2)}
       </h1>
     </div>
   );

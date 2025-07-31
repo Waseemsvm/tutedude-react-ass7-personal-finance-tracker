@@ -44,7 +44,7 @@ function TransactionPage(props) {
             {transactions.map((txn) => (
               <tr key={txn.id}>
                 <td>{txn.type}</td>
-                <td>{Math.round(txn.amount * rate)}</td>
+                <td>{(txn.amount * rate).toFixed(2)}</td>
                 <td>{txn.category}</td>
                 <td>{txn.date}</td>
                 <td>{txn.description}</td>

@@ -44,3 +44,12 @@ body,
 .btn:active {
   background-color: #0062d1;
 }
+
+.footer {
+  height: 3.5rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

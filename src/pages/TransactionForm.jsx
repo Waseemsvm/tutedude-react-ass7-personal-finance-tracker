@@ -20,17 +20,16 @@ function TransactionForm(props) {
     isModalOpen,
     setIsModalOpen,
     updateTxn,
+    rate,
   } = props;
   const { showModal } = useModal();
   const notify = (message) => toast.success(message, { autoClose: 800 });
-
-  // const showError = () => toast("Please update the form with valid values");
 
   let initialFormData = {
     type: types[0].value,
     category: categories[0].value,
     date: new Date().toISOString().substr(0, 10),
-    amount: 0,
+    amount: undefined,
     description: "",
   };
 
@@ -42,7 +41,8 @@ function TransactionForm(props) {
       if (isModalOpen) {
         const data_to_edit = localStorage.getItem("data_to_edit");
         if (data_to_edit) {
-          setFormData(JSON.parse(data_to_edit));
+          const data = JSON.parse(data_to_edit);
+          setFormData({ ...data, amount: data.amount * rate });
           setIsEditMode(true);
         } else {
           setFormData({ ...initialFormData });
@@ -81,12 +81,12 @@ function TransactionForm(props) {
             !formData.date
           ) {
             toast.error("Please update valid values", {
-              autoClose: 1000,
+              autoClose: 500,
             });
             return;
           }
 
-          formData.amount = parseInt(formData.amount);
+          formData.amount = formData.amount / rate;
 
           if (isEditMode) {
             updateTxn(formData);
@@ -147,12 +147,13 @@ function TransactionForm(props) {
           )}
         </div>
         <div className={TransactionPageStyles["form-data"]}>
+          <p className={TransactionPageStyles.symbol}>{symbol}</p>
           <input
             name="amount"
             id="amount"
             type="text"
             placeholder="Enter the Amount"
-            value={formData.amount}
+            value={isNaN(formData.amount) ? 0 : formData.amount}
             onChange={updateFormdata}
           />
           {formData.amount <= 0 && (

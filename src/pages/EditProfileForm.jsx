@@ -12,6 +12,7 @@ function EditProfileForm(props) {
     currency,
     dob,
     email,
+    avatar,
     updateProfile,
     currencyList,
     updateCurrency,
@@ -20,13 +21,29 @@ function EditProfileForm(props) {
   const notify = (e) =>
     toast("Profile Updated Successfully", { autoClose: 800 });
 
-  const updateData = (e) => {
+  const updateData = async (e) => {
+    if (e.target.id === "avatar") {
+      const fileData = await fileToDataURL(e.target.files[0]);
+      if (fileData) return updateProfile(e.target.id, fileData);
+    }
+
     updateProfile(e.target.id, e.target.value);
     if (e.target.id === "currency") {
-      const rate = currencyList.find((c) => c.key === e.target.value)?.rate;
+      // const rate = currencyList.find((c) => c.key === e.target.value)?.rate;
       updateCurrency(e.target.value);
     }
   };
+
+  function fileToDataURL(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+
+      reader.readAsDataURL(file);
+    });
+  }
 
   return (
     <form
@@ -40,8 +57,8 @@ function EditProfileForm(props) {
     >
       <div className={ProfileStyles["form-cont"]}>
         <div className={ProfileStyles["form-data"]}>
-          <img src={profilepic} className={ProfileStyles["avatar"]} />
-          <input type="file" onChange={(e) => {}} />
+          <img src={avatar || profilepic} className={ProfileStyles["avatar"]} />
+          <input type="file" id="avatar" onChange={updateData} />
         </div>
         <div className={ProfileStyles["form-data"]}>
           <input
@@ -113,6 +130,7 @@ const mapStateToProps = (state) => {
   return {
     profilepic: state.profile.src,
     name: state.profile.name,
+    avatar: state.profile.avatar,
     currency: state.profile.currency,
     dob: state.profile.dob,
     email: state.profile.email,

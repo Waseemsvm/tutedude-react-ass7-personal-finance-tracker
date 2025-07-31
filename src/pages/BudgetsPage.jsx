@@ -9,13 +9,11 @@ import { useState } from "react";
 function BudgetsPage(props) {
   const { categories, rate, symbol, updateBudgetVal, transactions } = props;
 
-  // const dateVal = new Date().toISOString().substr(0, 10);
   const [dateVal, setDateVal] = useState(
     new Date().toISOString().substr(0, 10)
   );
   const notify = (e) =>
     toast("Budget Updated Successfully", { autoClose: 800 });
-  // const [budgetVal, setBudgetVal] = useState(budget);
 
   const [selectedCat, setSelectedCat] = useState(categories[0]);
 
@@ -44,7 +42,6 @@ function BudgetsPage(props) {
               value={selectedCat.value}
               onChange={(e) => {
                 const cat = categories.find(
-                  // (cat) => cat.value === e.target.value
                   (cat) => cat.value === e.target.value
                 );
                 setSelectedCat(cat);
@@ -59,12 +56,13 @@ function BudgetsPage(props) {
               <input
                 type="text"
                 placeholder="Set your Budget"
-                value={Math.round(selectedCat.budget * rate)}
+                value={(selectedCat.budget * rate).toFixed(2)}
                 onChange={(e) => {
+                  if (isNaN(Number(e.target.value))) return;
                   const newselectedCat = { ...selectedCat };
-                  newselectedCat.budget = Math.round(
+                  newselectedCat.budget = (
                     Number(e.target.value) / rate
-                  );
+                  ).toFixed(2);
                   setSelectedCat(newselectedCat);
                 }}
               />

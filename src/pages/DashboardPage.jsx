@@ -107,7 +107,11 @@ function DashboardPage(props) {
       <h1>Dashboard</h1>
       <div className={DashboardPageStyles["amount-card-cont"]}>
         {summary.map((s, idx) => (
-          <AmountCard key={idx} title={s.title} amount={s.amount} />
+          <AmountCard
+            key={idx}
+            title={s.title}
+            amount={isNaN(s.amount) ? 0 : s.amount}
+          />
         ))}
       </div>
       <div className={DashboardPageStyles["dash-chart-cont"]}>
