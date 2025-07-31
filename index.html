@@ -8,6 +8,12 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      const currentVersion = "1.0.0";
+      const version = localStorage.getItem("version");
+      localStorage.setItem("version", currentVersion);
+      if (currentVersion !== version) localStorage.removeItem("app_state");
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
