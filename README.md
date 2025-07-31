@@ -1,12 +1,43 @@
-# React + Vite
+# Personal Finance Tracker Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Dashboard Page
 
-Currently, two official plugins are available:
+- Global Header and Footer across all pages
+- Summary Cards:
+  - Total Income
+  - Total Expenses
+  - Remaining Budget
+  - Total Savings
+- Interactive Charts
+  - Monthly Spending Trend (Line/Bar chart)
+  - Category-wise Expense Split (Pie chart)
+- Today’s Expenses Table:
+  - Amount, Category, Note
+- Date Filter:
+  - Filter dashboard data by day
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Transactions Page
 
-## Expanding the ESLint configuration
+- 📑 Full Transaction List in a sortable table
+  - Columns: Type (Income/Expense), Amount, Category, Date, Description
+- ➕ Add Transaction Form/Dialog
+- ✏️ Edit and 🗑️ Delete actions with full functionality
+- 🔍 Sortable and filterable table for ease of navigation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Budgets Page
+
+- 🎯 Set Monthly Budget per Category
+- 📊 Visual Progress Indicators (bars/meters/rings)
+- 🚨 Overspend Alert when a budget limit is exceede
+- 🔄 Real-time updates and warnings
+
+## Profile Page
+
+- Display user details: Name, Email, etc.
+- 🌐 Change Default Currency (₹, $, €, £)
+- 📈 View Lifetime Expenses and Savings
+- 🛠️ Edit Profile functionality
+
+# Deploy Link:
+
+https://personal-finan-tracker.netlify.app/
