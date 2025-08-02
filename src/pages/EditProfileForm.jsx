@@ -18,8 +18,7 @@ function EditProfileForm(props) {
     updateCurrency,
   } = props;
   const { showModal } = useModal();
-  const notify = (e) =>
-    toast("Profile Updated Successfully", { autoClose: 800 });
+  const notify = (message) => toast(message, { autoClose: 800 });
 
   const updateData = async (e) => {
     if (e.target.id === "avatar") {
@@ -50,8 +49,13 @@ function EditProfileForm(props) {
       action=""
       className={ProfileStyles["form"]}
       onSubmit={(e) => {
-        notify();
         e.preventDefault();
+        if (!name || !email)
+          return toast.error("Please update form with valid values", {
+            autoClose: 800,
+          });
+
+        notify("Profile Updated Successfully");
         showModal(false);
       }}
     >
@@ -68,6 +72,9 @@ function EditProfileForm(props) {
             value={name}
             onChange={updateData}
           />
+          <p className={ProfileStyles.error}>
+            {!name && "Please provide valid value for name"}
+          </p>
         </div>
         <div className={ProfileStyles["form-data"]}>
           <input
@@ -77,6 +84,9 @@ function EditProfileForm(props) {
             value={email}
             onChange={updateData}
           />
+          <p className={ProfileStyles.error}>
+            {!email && "Please provide valid value for email"}
+          </p>
         </div>
         <div className={ProfileStyles["form-data"]}>
           <input
@@ -86,6 +96,9 @@ function EditProfileForm(props) {
             value={dob}
             onChange={updateData}
           />
+          <p className={ProfileStyles.error}>
+            {!dob && "Please provide valid value for date"}
+          </p>
         </div>
         <div className={ProfileStyles["form-data"]}>
           <select
@@ -107,7 +120,6 @@ function EditProfileForm(props) {
             type="submit"
             text={"Close"}
             className={ProfileStyles["save-btn"]}
-            onClick={(e) => showModal(false)}
           />
         </div>
       </div>

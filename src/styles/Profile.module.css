@@ -107,6 +107,11 @@
   justify-content: end;
 }
 
+.error {
+  color: red;
+  font-size: 0.75rem;
+}
+
 @media screen and (max-width: 576px) {
   .profile-card {
     width: 100%;

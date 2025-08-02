@@ -30,7 +30,6 @@ function ProfilePage(props) {
     calculateDashboardData(transactions, categories);
   }, []);
 
-  // console.log(transactions, totalExpenses, savings);
 
   return (
     <div className={ProfilePageStyles.profile}>
